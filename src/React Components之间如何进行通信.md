@@ -253,3 +253,7 @@ class Comp2 extends React.Component {
 
 ## 总结
 从全文可知，我们要实现组件间的通信，不管采用什么方法，都要找到通信介质，通过通信介质来充当组件间联系的桥梁，这样才能够实现通信。在选择通信方法的时候，要根据实际项目以及需求来进行选择。
+
+##引用
+【1】：[8 no-Flux strategies for React component communication
+](http://andrewhfarmer.com/component-communication/)
