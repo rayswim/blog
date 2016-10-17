@@ -1,5 +1,5 @@
 # JavaScript 原型解析
--------
+
 ## null
 物理学告诉我们宇宙最初始什么都没有，佛学告诉我们四大皆空，三国杀告诉我们可以无中生有，世间种种都阐述了一个道理，世界万物是从无到有。那么在javascript中也有一个空，那就是null。我们可以按照世间万物的发展规律，把javascript这个空间的起点约定为null。
 
@@ -46,8 +46,8 @@ Object.__proto__ === Function.prototype; //true
 var Object = function() {...};
 var Function = function() {...};
 ```
-世上先有了Object.prototype这个东西，Object是个函数，其中它的prototype属性被上帝手动指向了Object.prototype。是时候祭出下图了：
-![https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg](https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg)
+世上先有了Object.prototype这个东西，Object是个函数，其中它的prototype属性被上帝手动指向了Object.prototype。是时候祭出下图了：  
+![https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg](https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg)  
 我们可以看到：Object、Function、Foo都可以看做为构造函数，其\__proto__\指向了Function.prototype，所有对象的\__proto__\最终都指向了Object.prototype，Object.prototype的constructor指向了function Object()，Object.prototype.\__proto__\指向了null。
 
 ## 原型链
