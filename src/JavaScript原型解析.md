@@ -12,7 +12,7 @@ Object.prototype.__proto__ === null //true
 
 ## \__proto__
 
-在JavaScript中，每个对象（除了null）都有一个隐藏属性[[prototype]]，目前主流浏览器将该属性通过\__proto\__暴露出来。对象中的\__proto\__指向构造该对象的构造函数的原型，也就是指向该对象的原型对象。这句话听着很绕口，用大白话讲就是\__proto\__是对象中的DNA，把每个对象看成人，那么你是由你爸的原型对象构造出来的，你的DNA指向了你爸，也可以说你的\__proto\__指向了你爸的原型对象。同理，你爸指向了你爷爷，你爷爷指向了....，也就是说通过\__proto\_可以访问到对象继承的所有的原型对象。
+在JavaScript中，每个对象（除了null）都有一个隐藏属性[[prototype]]，目前主流浏览器将该属性通过\__proto\__暴露出来。对象中的\__proto\__指向构造该对象的构造函数的原型，也就是指向该对象的原型对象。这句话听着很绕口，用大白话讲就是\__proto\__是对象中的DNA，把每个对象看成人，那么你是由你爸的原型对象构造出来的，你的DNA指向了你爸，也可以说你的\__proto\__指向了你爸的原型对象。同理，你爸指向了你爷爷，你爷爷指向了....，也就是说通过\__proto\__可以访问到对象继承的所有的原型对象。
 
 ## prototype
 JavaScript中，一切皆对象。那么函数就是对象，同时函数也是函数。这句话听着有点绕口，其实把对象比作女人，那么函数就是男人。男人和女人都有x染色体，男人还有y染色体。从生物学上讲男人的xy染色体是女人xx染色进化到一定阶段的产物，那么也可以说男人是女人，同时男人也是男人。那么对于每个男人，也就是每个函数实例，都有独有的y染色体，在JavaScript就是prototype，原型对象。  
@@ -48,7 +48,7 @@ var Function = function() {...};
 ```
 世上先有了Object.prototype这个东西，Object是个函数，其中它的prototype属性被上帝手动指向了Object.prototype。是时候祭出下图了：  
 ![https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg](https://pic2.zhimg.com/e83bca5f1d1e6bf359d1f75727968c11_b.jpg)  
-我们可以看到：Object、Function、Foo都可以看做为构造函数，其\__proto__\指向了Function.prototype，所有对象的\__proto__\最终都指向了Object.prototype，Object.prototype的constructor指向了function Object()，Object.prototype.\__proto__\指向了null。
+我们可以看到：Object、Function、Foo都可以看做为构造函数，其\__proto\__指向了Function.prototype，所有对象的\__proto\__最终都指向了Object.prototype，Object.prototype的constructor指向了function Object()，Object.prototype.\__proto\__指向了null。
 
 ## 原型链
 由上图我们可以看到每个构造函数都有一个原型对象`prototype`，每个由构造函数生成的对象都有一个`__proto__`指向构造函数的原型对象，这样每个对象通过`__proto__`找到其原型对象`prototype`，这样不断的层层递进最终找到了null。JavaScript在寻找某个对象的属性的时候，如果在该对象内没有找到，变会去该对象的原型对象中找，如果仍没找到，就去该对象的原型的原型去找，直到找到或者到null为止，这样都就成了以`__proto__`为桥接的原型链。
